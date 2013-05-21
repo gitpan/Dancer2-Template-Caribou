@@ -1,0 +1,8 @@
+use Template::Caribou::Tags::HTML ':all';
+
+html {
+    head { title { 'My App' } };
+    body {
+        show( 'inner' );
+    };
+}
