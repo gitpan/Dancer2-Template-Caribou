@@ -3,7 +3,7 @@ BEGIN {
   $Dancer2::Template::Caribou::AUTHORITY = 'cpan:YANICK';
 }
 {
-  $Dancer2::Template::Caribou::VERSION = '0.1.0';
+  $Dancer2::Template::Caribou::VERSION = '0.1.1';
 }
 #ABSTRACT: Template::Caribou wrapper for Dancer2
 
@@ -194,7 +194,7 @@ Dancer2::Template::Caribou - Template::Caribou wrapper for Dancer2
 
 =head1 VERSION
 
-version 0.1.0
+version 0.1.1
 
 =head1 SYNOPSIS
 

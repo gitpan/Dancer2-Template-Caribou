@@ -24,7 +24,7 @@ my %module_build_args = (
     "Yanick Champoux <yanick\@babyl.dyndns.org>"
   ],
   "dist_name" => "Dancer2-Template-Caribou",
-  "dist_version" => "0.1.0",
+  "dist_version" => "0.1.1",
   "license" => "perl",
   "module_name" => "Dancer2::Template::Caribou",
   "recommends" => {},
@@ -35,6 +35,7 @@ my %module_build_args = (
     "Moose::Util" => 0,
     "Path::Iterator::Rule" => 0,
     "Path::Tiny" => 0,
+    "Template::Caribou" => "v0.2.2",
     "strict" => 0,
     "warnings" => 0
   },
