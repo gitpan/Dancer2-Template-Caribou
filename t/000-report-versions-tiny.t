@@ -56,6 +56,7 @@ eval { $v .= pmver('File::Temp','any version') };
 eval { $v .= pmver('Module::Build','0.3601') };
 eval { $v .= pmver('Moo','any version') };
 eval { $v .= pmver('Moose','any version') };
+eval { $v .= pmver('Moose::Role','any version') };
 eval { $v .= pmver('Moose::Util','any version') };
 eval { $v .= pmver('Path::Iterator::Rule','any version') };
 eval { $v .= pmver('Path::Tiny','any version') };

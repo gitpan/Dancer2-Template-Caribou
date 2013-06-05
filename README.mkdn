@@ -4,7 +4,7 @@ Dancer2::Template::Caribou - Template::Caribou wrapper for Dancer2
 
 # VERSION
 
-version 0.1.1
+version 0.2.0
 
 # SYNOPSIS
 
@@ -158,6 +158,35 @@ defaults to `Dancer2::View`.
 If set to `true`, the Caribou object will verify if any of the 
 template files have changed before rendering and, if that's the case,
 will self-update. Defaults to `false`.
+
+# CONVENIENCE ATTRIBUTES AND METHODS
+
+Auto-generated templates have the
+[Dancer2::Template::Caribou::DancerVariables](http://search.cpan.org/perldoc?Dancer2::Template::Caribou::DancerVariables) role automatically applied to
+them, which give them helper methods like `uri_for()` and `context()` to
+interact with the Dancer environment. If you roll out your own template
+classes, you simply have to apply the role to have access to the same niftiness.
+
+    package Dancer2::View::MyView;
+
+    use Moose;
+    use Template::Caribou;
+
+    with qw/ 
+        Template::Caribou 
+        Dancer2::Template::Caribou::DancerVariables 
+    /;
+
+    template page => sub {
+        my $self = shift;
+        
+
+        print ::RAW $self->uri_for( '/foo' );
+    };
+
+- context()
+
+The [Dancer2::Core::Context](http://search.cpan.org/perldoc?Dancer2::Core::Context) object associated with the current request.
 
 # AUTHOR
 

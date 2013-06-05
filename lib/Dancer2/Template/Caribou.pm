@@ -3,7 +3,7 @@ BEGIN {
   $Dancer2::Template::Caribou::AUTHORITY = 'cpan:YANICK';
 }
 {
-  $Dancer2::Template::Caribou::VERSION = '0.1.1';
+  $Dancer2::Template::Caribou::VERSION = '0.2.0';
 }
 #ABSTRACT: Template::Caribou wrapper for Dancer2
 
@@ -126,6 +126,10 @@ use Template::Caribou;
 
 with 'Template::Caribou';
 
+has context => (
+    is => 'ro',
+);
+
 has app => (
     is => 'ro',
     handles => [ 'config' ],
@@ -179,7 +183,7 @@ sub render {
         )
     }
 
-    return $class->new( app => $self->context->app, %$tokens)->render('page');
+    return $class->new( context => $self->context, app => $self->context->app, %$tokens)->render('page');
 }
 
 1;
@@ -194,7 +198,7 @@ Dancer2::Template::Caribou - Template::Caribou wrapper for Dancer2
 
 =head1 VERSION
 
-version 0.1.1
+version 0.2.0
 
 =head1 SYNOPSIS
 
@@ -344,6 +348,38 @@ defaults to C<Dancer2::View>.
 If set to C<true>, the Caribou object will verify if any of the 
 template files have changed before rendering and, if that's the case,
 will self-update. Defaults to C<false>.
+
+=back
+
+=head1 CONVENIENCE ATTRIBUTES AND METHODS
+
+Auto-generated templates have the
+L<Dancer2::Template::Caribou::DancerVariables> role automatically applied to
+them, which give them helper methods like C<uri_for()> and C<context()> to
+interact with the Dancer environment. If you roll out your own template
+classes, you simply have to apply the role to have access to the same niftiness.
+
+    package Dancer2::View::MyView;
+
+    use Moose;
+    use Template::Caribou;
+
+    with qw/ 
+        Template::Caribou 
+        Dancer2::Template::Caribou::DancerVariables 
+    /;
+
+    template page => sub {
+        my $self = shift;
+        
+        print ::RAW $self->uri_for( '/foo' );
+    };
+
+=over
+
+=item context()
+
+The L<Dancer2::Core::Context> object associated with the current request.
 
 =back
 
