@@ -3,7 +3,7 @@ BEGIN {
   $Dancer2::Template::Caribou::DancerVariables::AUTHORITY = 'cpan:YANICK';
 }
 {
-  $Dancer2::Template::Caribou::DancerVariables::VERSION = '0.2.0';
+  $Dancer2::Template::Caribou::DancerVariables::VERSION = '0.2.1';
 }
 #ABSTRACT: Role providing Dancer attributes to the template objects
 
@@ -35,7 +35,7 @@ Dancer2::Template::Caribou::DancerVariables - Role providing Dancer attributes t
 
 =head1 VERSION
 
-version 0.2.0
+version 0.2.1
 
 =head1 SYNOPSIS
 

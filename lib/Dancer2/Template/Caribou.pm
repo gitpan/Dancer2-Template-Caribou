@@ -3,7 +3,7 @@ BEGIN {
   $Dancer2::Template::Caribou::AUTHORITY = 'cpan:YANICK';
 }
 {
-  $Dancer2::Template::Caribou::VERSION = '0.2.0';
+  $Dancer2::Template::Caribou::VERSION = '0.2.1';
 }
 #ABSTRACT: Template::Caribou wrapper for Dancer2
 
@@ -124,7 +124,10 @@ package $name;
 use Moose;
 use Template::Caribou;
 
-with 'Template::Caribou';
+with qw/
+    Template::Caribou
+    Dancer2::Template::Caribou::DancerVariables
+/;
 
 has context => (
     is => 'ro',
@@ -198,7 +201,7 @@ Dancer2::Template::Caribou - Template::Caribou wrapper for Dancer2
 
 =head1 VERSION
 
-version 0.2.0
+version 0.2.1
 
 =head1 SYNOPSIS
 
